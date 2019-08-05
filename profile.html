@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SignIn / SignUp</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="row grid p-2">
+        <div class="brand col-2">
+            <h2>Test</h2>
+        </div>
+        <div class="nav-container col-10">
+            <nav class="navBar collapsed">
+                <a href="javascript:void(0)" class="nav-toggle"><img src="./images/menu-toggle.png"
+                        alt="Toggle Menu"></a>
+
+                <ul class="menuList">
+                    <li><a class="active" href="#">Home</a></li>
+                    <li class="dropDown">
+                        <a href="#">Menu</a>
+                        <div class="dropDownitems">
+                            <ul>
+                                <!--_---------------------2nd level-----------------------_-->
+                                <li><a href="#">link1</a></li>
+                                <li class="dropDown">
+                                    <a href="#">Menu</a>
+                                    <div class="dropDownitems3rdLvl">
+                                        <ul>
+                                            <!--_---------------------3rd level-------------------------_-->
+                                            <li><a href="#">link1</a></li>
+                                            <li><a href="#">link2</a></li>
+                                            <li><a href="#">Link3</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li><a href="#">Link3</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li><a role="button" class="pointer" data-trigger="popup">Login</a></li>
+                    <li><a role="button" class="pointer" data-trigger="popup">Signup</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </header>
+    <main>
+        <div class="popup closed" style="display: none;">
+            <div class="backdrop"></div>
+            <div class="popup-dialog">
+                <div class="popup-header row text-center">
+                    <a class="d-block pointer col-6 tabs active" data-target="#signInForm">Login</a>
+                    <a class="d-block pointer col-6 tabs" data-target="#signUpForm">Signup</a>
+                </div>
+                <div class="sign-form" id="signInForm">
+                    <form action="/profile.html" onsubmit="return validate(event)" method="POST">
+                        <div class="popup-body">
+                            <div class="form-group">
+                                <label for="user">Username:</label>
+                                <input type="text" name="user" id="user" data-validation="required"
+                                    data-errmessage="Enter Your Username" placeholder="Enter Username">
+                            </div>
+                            <div class="form-group">
+                                <label for="pass">Password:</label>
+                                <input type="password" name="pass" id="pass" data-validation="required"
+                                    data-errmessage="Enter Your Password" placeholder="Enter Password">
+                            </div>
+                        </div>
+                        <div class="popup-footer text-right">
+                            <button type="reset" role="button" class="btn btn-secondary pointer">Reset</button>
+                            <button type="submit" role="button" class="btn btn-primary pointer">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="sign-form hide" id="signUpForm">
+                    <form action="">
+                        <div class="popup-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="fname">First Name:</label>
+                                        <input type="text" name="fname" id="fname">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="lname">Last Name:</label>
+                                        <input type="text" name="lname" id="lname">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" name="email" id="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="pass">Password:</label>
+                                <input type="password" name="pass" id="pass">
+                            </div>
+                        </div>
+
+                        <div class="popup-footer text-right">
+                            <a role="button" class="btn btn-secondary pointer">Reset</a>
+                            <a role="button" class="btn btn-primary pointer">Submit</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>

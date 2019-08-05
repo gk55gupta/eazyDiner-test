@@ -1,0 +1,407 @@
+/*------------------------- Global Styles ---------------------------*/
+* {
+	margin:0;
+	padding: 0;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f1f1f1;
+    color: #444444;
+}
+
+header {
+    background: #fff;
+    box-shadow: 1px 1px 1px 1px #ddd;
+}
+p, h1, h2, h3, h4 {
+    color: #444444;
+}
+
+.grid {
+    margin: auto;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    }
+
+.col-1 {
+    width: 8.33%;
+}
+
+.col-2 {
+    width: 16.66%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.33%;
+}
+
+.col-5 {
+    width: 41.66%;
+}
+
+.col-6 {
+    width: 50%;
+
+}
+
+.col-7 {
+    width: 58.33%;
+}
+
+.col-8 {
+    width: 66.66%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.33%;
+}
+
+.col-11 {
+    width: 91.66%;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle img {
+    width: 45px;
+}
+
+/* utilities classes */
+.p-2 {
+    padding: 15px;
+}
+.box-shadow {
+    box-shadow: 1px 1px 1px 1px #ddd;
+}
+.hide {
+    display: none;
+}
+.show {
+    display: block;
+}
+.text-left {
+    text-align: left;
+}
+.text-center {
+    text-align: center;
+}
+.text-right {
+    text-align: right;
+}
+.pointer {
+    cursor: pointer;
+}
+
+/*------------------------ Menu Bar Style --------------------------*/
+.menuList{
+	list-style-type:none;
+	overflow:hidden;
+	text-align: right;
+}
+
+/*------------------------ Level-1 Style ---------------------------*/
+
+.menuList ul {
+	list-style-type:none;
+}
+
+.menuList a {
+	display:block;
+	text-decoration:none;
+	color: #444444;
+	text-align: center;
+	padding:11px 22.6px;
+}
+
+.menuList a:hover:not(.active){
+	background-color:#444;
+	color: #fff;
+}
+
+.menuList > li{/* float:left; */display: inline-block;}
+
+/*------------------------ Level-2 Style ---------------------------*/
+
+.dropDownitems{
+	display:none;
+	position:absolute;
+	background-color: #f9f9f9;
+    min-width: 122px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropDownitems a{
+	color:#111;
+}
+
+.dropDownitems a:hover {color:#fff; }
+
+.dropDown:hover > .dropDownitems {
+    display: block;
+	
+}
+
+/*------------------------ Level-3 Style ---------------------------*/
+.dropDownitems3rdLvl{
+	display:none;
+	position:absolute;
+	background-color: #f9f9f9;
+    min-width: 122px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	left:100%;
+    top: 33%;
+}
+
+.dropDown:hover > .dropDownitems3rdLvl{
+	display:block;
+}
+
+/* end menu styles */
+
+.btn {
+    padding: 6px 25px;
+    display: inline-block;
+    border-radius: 2px;
+    border: 1px solid #444;
+    background: transparent;
+}
+.btn-secondary {
+}
+.btn-primary {
+
+color: #fff;
+
+background: #444;
+}
+
+
+.slideInLeft {
+  animation: 1s slidein;
+}
+.slideOutRight {
+  animation: 1s slideOut;
+}
+
+.popup  {
+    /* display: none; */
+    position: fixed;
+    top:  0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.popup.open  {
+    display: block;
+}
+.popup.closed .popup-dialog {
+    animation: .5s slideUp;
+}
+.popup.open .popup-dialog {
+    animation: .5s slideDown;
+}
+.backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.2);
+}
+.popup.fadeOut .backdrop {
+    animation: fadeOut .5s;
+}
+.popup-dialog {
+    margin: 5% auto;
+    background: #fff;
+    width: 50%;
+    min-width: 280px;
+    max-width: 400px;
+    overflow: hidden;
+}
+
+.popup-header {
+    border-bottom: 1px solid #ddd;
+}
+.popup-header a {
+    padding: 8px 18px;
+}
+.popup-header a.active {
+    background: #444444;
+    color: #fff;
+}
+.popup-body {
+border-bottom: 1px solid #ddd;
+padding: 30px 35px;
+overflow-y: auto;
+max-height: 400px;
+}
+.popup-footer {
+
+padding: 15px 35px;
+}
+
+.sign-form {
+    /* padding: 20px 35px; */
+}
+.form-group {
+    position: relative;
+}
+label {
+    display: block;
+    width: 98%;
+    margin-left: auto;
+}
+input, textarea {
+    width: 99%;
+    padding: 8px;
+    margin: 5px;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    resize: none;
+    border: 1px solid #ccc;
+}
+.add-more {
+    position: absolute;
+    bottom: 5px;
+    font-size: 13px;
+    right: 0;
+}
+
+
+/* css for form validation */
+input[type=number] {
+    -moz-appearance:textfield;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance:none;
+    margin:0;
+}
+input[type=number]:hover {
+    -moz-appearance:textfield;
+}
+.position-relative {
+    position: relative!important;
+}
+
+span.error {
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    color: #a61f00;
+    font-size:12px;
+    width:200px;
+    padding-left: 0px;
+    text-align: left;
+}
+input.invalid {
+    border-bottom-color: #a61f00;
+    outline: none;
+}
+
+
+/*-------------------------------------------------------------------*/
+
+@media screen and (max-width: 660px){
+    .nav-toggle {
+        display: inline-block;
+        margin-left: -65px;
+        padding: 10px;
+    }
+    .menuList {
+    }
+	.menuList > li {
+		display: block;
+    }
+    .navBar {
+        position: fixed;
+        top: 0;
+        left: 100%;
+        right: 0;
+        background: #e0e0e0;
+        bottom: 0;
+    }
+    .navBar.expanded {
+        left: 40%;
+        animation: .7s slidein;
+    }
+    .navBar.collapsed {
+        animation: .7s slideOut;
+    }
+}
+
+
+/* animation keyframes */
+@keyframes slidein {
+  from {
+    left: 100%;
+  }
+
+  to {
+    left: 40%;
+  }
+}
+@keyframes slideOut {
+  from {
+    left: 40%;
+  }
+
+  to {
+    left: 100%;
+  }
+}
+@keyframes slideDown {
+  from {
+    margin-top: -30%;
+  }
+
+  to {
+    margin-top: 5%;
+  }
+}
+@keyframes slideUp {
+  from {
+    margin-top: 5%;
+  }
+
+  to {
+    margin-top: -30%;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
