@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SignIn / SignUp</title>
+    <title>Profile</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -51,67 +52,227 @@
         </div>
 
     </header>
-    <main>
-        <div class="popup closed" style="display: none;">
-            <div class="backdrop"></div>
-            <div class="popup-dialog">
-                <div class="popup-header row text-center">
-                    <a class="d-block pointer col-6 tabs active" data-target="#signInForm">Login</a>
-                    <a class="d-block pointer col-6 tabs" data-target="#signUpForm">Signup</a>
-                </div>
-                <div class="sign-form" id="signInForm">
-                    <form action="/profile.html" onsubmit="return validate(event)" method="POST">
-                        <div class="popup-body">
-                            <div class="form-group">
-                                <label for="user">Username:</label>
-                                <input type="text" name="user" id="user" data-validation="required"
-                                    data-errmessage="Enter Your Username" placeholder="Enter Username">
-                            </div>
-                            <div class="form-group">
-                                <label for="pass">Password:</label>
-                                <input type="password" name="pass" id="pass" data-validation="required"
-                                    data-errmessage="Enter Your Password" placeholder="Enter Password">
-                            </div>
-                        </div>
-                        <div class="popup-footer text-right">
-                            <button type="reset" role="button" class="btn btn-secondary pointer">Reset</button>
-                            <button type="submit" role="button" class="btn btn-primary pointer">Submit</button>
-                        </div>
-                    </form>
-                </div>
-                <div class="sign-form hide" id="signUpForm">
-                    <form action="">
-                        <div class="popup-body">
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label for="fname">First Name:</label>
-                                        <input type="text" name="fname" id="fname">
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label for="lname">Last Name:</label>
-                                        <input type="text" name="lname" id="lname">
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="form-group">
-                                <label for="email">Email:</label>
-                                <input type="email" name="email" id="email">
-                            </div>
-                            <div class="form-group">
-                                <label for="pass">Password:</label>
-                                <input type="password" name="pass" id="pass">
-                            </div>
-                        </div>
 
-                        <div class="popup-footer text-right">
-                            <a role="button" class="btn btn-secondary pointer">Reset</a>
-                            <a role="button" class="btn btn-primary pointer">Submit</a>
+    <main class="mt-2">
+        <div class="row">
+            <div class="col-3 col-md-4">
+                <div class="row">
+                    <div class="col-12 p-2">
+                        <div class="box-shadow p-2 bg-white">
+                            <img class="avatar" src="images/user.png" alt="avatar">
+                            <div class="details p-2">
+                                <h3 class="title mt-2">Name</h3>
+                                <p class=" mt-2">Designation - Company Name</p>
+                                <p class=" mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, accusamus
+                                    impedit voluptatibus officia aliquid doloremque fugiat pariatur.</p>
+                                <p class=" mt-2">
+                                    <i class="fas fa-phone-alt"></i> &nbsp;
+                                    +0 1897879789</p>
+                                
+                                <p class=" mt-2"><i class="fas fa-globe"></i> &nbsp;
+                                    <a href="https://mywebsite.com" target="_blank">
+                                    mywebsite.com</a><br>
+                                </p>
+                                <p class=" mt-2"><i class="fas fa-envelope"></i> &nbsp;
+                                    <a href="mailto:mymail@host.com" target="_blank">
+                                    mymail@host.com</a><br>
+                                </p>
+                                
+                            </div>
                         </div>
-                    </form>
+                    </div>
+                    <div class="col-12 p-2">
+                        <div class="box-shadow bg-white">
+                            <h4 class="caps border-bottom p-2">technical skills</h4>
+                        </div>
+                        <div class="box-shadow bg-white p-2">
+                            <h5 class="grey-text">Skill1</h5>
+                            <div class="skill skill1 mt-2">
+                                <p class="fill"></p>
+                            </div>
+                            <h5 class="grey-text mt-2">Skill2</h5>
+                            <div class="skill skill2 mt-2">
+                                <p class="fill"></p>
+                            </div>
+                            <h5 class="grey-text mt-2">Skill3</h5>
+                            <div class="skill skill3 mt-2">
+                                <p class="fill"></p>
+                            </div>
+                            <h5 class="grey-text mt-2">Skill4</h5>
+                            <div class="skill skill4 mt-2">
+                                <p class="fill"></p>
+                            </div>
+                            <h5 class="grey-text mt-2">Skill5</h5>
+                            <div class="skill skill5 mt-2">
+                                <p class="fill"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-9 col-md-8">
+                <div class="row">
+                    <div class="col-12 p-2">
+                        <div class="box-shadow bg-white">
+                            <div class="tab-pills">
+
+                                <a class="p-2 tab-pill active" href="">tab1</a>
+                                <a class="p-2 tab-pill" href="">tab2</a>
+                                <a class="p-2 tab-pill" href="">tab3</a>
+                                <a class="p-2 tab-pill" href="">tab4</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 p-2">
+                        <div class="bg-white box-shadow">
+                            <h4 class="caps border-bottom p-2">technical skills</h4>
+                        </div>
+                        <div class="row box-shadow bg-white ">
+                            <div class="col-6 p-2">
+                                <table>
+                                    <tr>
+                                        <th>
+                                            Full Name
+                                        </th>
+                                        <td>
+                                            Full Name
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            Full Name
+                                        </th>
+                                        <td>
+                                            Full Name
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            Full Name
+                                        </th>
+                                        <td>
+                                            Full Name
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            Full Name
+                                        </th>
+                                        <td>
+                                            Full Name
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            Full Name
+                                        </th>
+                                        <td>
+                                            Full Name
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-6 p-2">
+                                <table>
+                                    <tr>
+                                        <th>
+                                            Full Name
+                                        </th>
+                                        <td>
+                                            Full Name
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-6 p-2">
+                                <div class="box-shadow bg-white">
+                            <h4 class="caps border-bottom p-2">technical skills</h4>
+                        </div>
+                        <div class="box-shadow bg-white p-2">
+                            <h5 class="grey-text">Skill1</h5>
+                            <div class="skill skill1 mt-2">
+                                <p class="fill"></p>
+                            </div>
+                            <h5 class="grey-text mt-2">Skill2</h5>
+                            <div class="skill skill2 mt-2">
+                                <p class="fill"></p>
+                            </div>
+                            <h5 class="grey-text mt-2">Skill3</h5>
+                            <div class="skill skill3 mt-2">
+                                <p class="fill"></p>
+                            </div>
+                            <h5 class="grey-text mt-2">Skill4</h5>
+                            <div class="skill skill4 mt-2">
+                                <p class="fill"></p>
+                            </div>
+                            <h5 class="grey-text mt-2">Skill5</h5>
+                            <div class="skill skill5 mt-2">
+                                <p class="fill"></p>
+                            </div>
+                        </div>                                   
+                            </div>
+                            <div class="col-6 p-2">
+                                <div class="box-shadow bg-white">
+                            <h4 class="caps border-bottom p-2">technical skills</h4>
+                        </div>
+                        <div class="box-shadow bg-white p-2">
+                            <h5 class="grey-text">Skill1</h5>
+                            <div class="skill skill1 mt-2">
+                                <p class="fill"></p>
+                            </div>
+                            <h5 class="grey-text mt-2">Skill2</h5>
+                            <div class="skill skill2 mt-2">
+                                <p class="fill"></p>
+                            </div>
+                            <h5 class="grey-text mt-2">Skill3</h5>
+                            <div class="skill skill3 mt-2">
+                                <p class="fill"></p>
+                            </div>
+                            <h5 class="grey-text mt-2">Skill4</h5>
+                            <div class="skill skill4 mt-2">
+                                <p class="fill"></p>
+                            </div>
+                            <h5 class="grey-text mt-2">Skill5</h5>
+                            <div class="skill skill5 mt-2">
+                                <p class="fill"></p>
+                            </div>
+                        </div>                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 p-2">
+                        <div class="box-shadow bg-white">
+                            <h4 class="caps border-bottom p-2">technical skills</h4>
+                        </div>
+                        <div class="box-shadow bg-white p-2">
+                            <h5 class="grey-text">Skill1</h5>
+                            <div class="skill skill1 mt-2">
+                                <p class="fill"></p>
+                            </div>
+                            <h5 class="grey-text mt-2">Skill2</h5>
+                            <div class="skill skill2 mt-2">
+                                <p class="fill"></p>
+                            </div>
+                            <h5 class="grey-text mt-2">Skill3</h5>
+                            <div class="skill skill3 mt-2">
+                                <p class="fill"></p>
+                            </div>
+                            <h5 class="grey-text mt-2">Skill4</h5>
+                            <div class="skill skill4 mt-2">
+                                <p class="fill"></p>
+                            </div>
+                            <h5 class="grey-text mt-2">Skill5</h5>
+                            <div class="skill skill5 mt-2">
+                                <p class="fill"></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

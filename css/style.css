@@ -15,26 +15,42 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: #f1f1f1;
     color: #444444;
+    padding-top: 70px;
 }
 
 header {
+    position: fixed;
     background: #fff;
     box-shadow: 1px 1px 1px 1px #ddd;
+    top: 0;
+    z-index: 9999;
 }
 p, h1, h2, h3, h4 {
     color: #444444;
 }
-
+a {
+	color: #10adff;
+	text-decoration: none;
+}
+.title {
+	color: #10adff;
+}
 .grid {
     margin: auto;
-    max-width: 1200px;
     width: 100%;
 }
 
 .row {
     width: 100%;
     display: flex;
-    }
+}
+.row-xs {
+    width: 100%;
+    display: flex;
+}
+.row .row {
+    flex-wrap: wrap;
+}
 
 .col-1 {
     width: 8.33%;
@@ -45,6 +61,9 @@ p, h1, h2, h3, h4 {
 }
 
 .col-3 {
+    width: 25%;
+}
+.col-xs-3 {
     width: 25%;
 }
 
@@ -58,7 +77,9 @@ p, h1, h2, h3, h4 {
 
 .col-6 {
     width: 50%;
-
+}
+.col-xs-6 {
+    width: 50%;
 }
 
 .col-7 {
@@ -94,8 +115,20 @@ p, h1, h2, h3, h4 {
 }
 
 /* utilities classes */
+.p-1 {
+    padding: 5px;
+}
 .p-2 {
     padding: 15px;
+}
+.py-2 {
+    padding: 15px 0;
+}
+.mt-2 {
+    margin-top: 10px;
+}
+.mt-5 {
+    margin-top: 50px !important;
 }
 .box-shadow {
     box-shadow: 1px 1px 1px 1px #ddd;
@@ -117,6 +150,16 @@ p, h1, h2, h3, h4 {
 }
 .pointer {
     cursor: pointer;
+}
+.bg-white {
+    background: white;
+    overflow: auto;
+}
+.caps {
+    text-transform: uppercase;
+}
+.border-bottom {
+    border-bottom: 1px solid #ddd;
 }
 
 /*------------------------ Menu Bar Style --------------------------*/
@@ -220,10 +263,10 @@ background: #444;
 .popup.open  {
     display: block;
 }
-.popup.closed .popup-dialog {
+.popup.closed .card {
     animation: .5s slideUp;
 }
-.popup.open .popup-dialog {
+.popup.open .card {
     animation: .5s slideDown;
 }
 .backdrop {
@@ -238,8 +281,8 @@ background: #444;
 .popup.fadeOut .backdrop {
     animation: fadeOut .5s;
 }
-.popup-dialog {
-    margin: 5% auto;
+.card {
+    margin: 0 auto;
     background: #fff;
     width: 50%;
     min-width: 280px;
@@ -247,30 +290,71 @@ background: #444;
     overflow: hidden;
 }
 
-.popup-header {
+.card-head {
     border-bottom: 1px solid #ddd;
 }
-.popup-header a {
+.card-head a {
     padding: 8px 18px;
 }
-.popup-header a.active {
+.card-head a.active {
     background: #444444;
     color: #fff;
 }
-.popup-body {
-border-bottom: 1px solid #ddd;
-padding: 30px 35px;
-overflow-y: auto;
-max-height: 400px;
+.card-body {
+    border-bottom: 1px solid #ddd;
+    padding: 30px 35px;
+    overflow-y: auto;
+    max-height: 365px;
 }
-.popup-footer {
+.card-footer {
+    padding: 15px 35px;
+}
 
-padding: 15px 35px;
+.avatar {
+    margin: auto;
+    display: block;
+    max-width: 100%;
+}
+.skill {
+    background: #ddd;
+    height: 10px;
+}
+.skill .fill{
+    height: 10px;
+    width: 35%;
+}
+.skill1 .fill {
+    background: #009bec;
+} 
+.skill2 .fill {
+    background: #3cbf1c;
+} 
+.skill3 .fill {
+    background: #10adff;
+} 
+.skill4 .fill {
+    background: #6d4cbd;
+} 
+.skill5 .fill {
+    background: #e6671d;
+}
+.tab-pills {min-width: 800px;overflow-x: auto;width: 100%;}
+.tab-pill {
+    display: inline-block;
+    width: 24%;
+    text-align: center;
+    min-width: 190px;
+}
+.tab-pill.active {
+	border-bottom: 3px solid #4f92ff;
+}
+th {
+    width: 50%;
+    padding: 15px;
 }
 
-.sign-form {
-    /* padding: 20px 35px; */
-}
+td {padding: 15px;width: 45%;}
+
 .form-group {
     position: relative;
 }
@@ -318,7 +402,6 @@ span.error {
     bottom: 5px;
     color: #a61f00;
     font-size:12px;
-    width:200px;
     padding-left: 0px;
     text-align: left;
 }
@@ -330,11 +413,19 @@ input.invalid {
 
 /*-------------------------------------------------------------------*/
 
+@media (min-width: 660px) and (max-width: 1200px){
+    .col-md-4 {
+        width: 33.33%;
+    }
+    .col-md-8 {
+        width: 66.66%;
+    }
+}
 @media screen and (max-width: 660px){
     .nav-toggle {
         display: inline-block;
         margin-left: -65px;
-        padding: 10px;
+        padding: 8px;
     }
     .menuList {
     }
@@ -348,6 +439,7 @@ input.invalid {
         right: 0;
         background: #e0e0e0;
         bottom: 0;
+        z-index: 999;
     }
     .navBar.expanded {
         left: 40%;
@@ -355,6 +447,12 @@ input.invalid {
     }
     .navBar.collapsed {
         animation: .7s slideOut;
+    }
+    .row {
+        flex-wrap: wrap;
+    }
+    [class*="col-"] {
+        width: 100%;
     }
 }
 

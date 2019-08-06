@@ -23,8 +23,30 @@ $(function() {
     });
 
     $('.add-more').on('click', function() {
+        $(this).remove();
+        var txtAreaHTML = $('#address_grp').html();
+        txtAreaHTML = txtAreaHTML.replace('for="address"', 'for="address2"');
+        txtAreaHTML = txtAreaHTML.replace('Address:', 'Address 2:');
+        txtAreaHTML = txtAreaHTML.replace('name="address', 'name="address2"');
+        txtAreaHTML = txtAreaHTML.replace('id="address"', 'id="address2"');
+        txtAreaHTML = txtAreaHTML.replace('Enter Your Address', 'Enter Your Address 2');
+        txtAreaHTML = txtAreaHTML.replace('Enter Address', 'Enter Address 2');
+        console.log(txtAreaHTML);
+        $('#address_grp').append(txtAreaHTML);
         
-    })
+    });
+
+    $('.otp-input').on('keyup', function(e) {
+        var nextInput = typeof $(this).data('nextinput') != "undefined" ? $(this).data('nextinput') : false;
+        var prevInput = typeof $(this).data('previnput') != "undefined" ? $(this).data('previnput') : false;
+        if (nextInput && e.key > -1 && e.key <= 9) {
+            $(nextInput).focus();
+        } else {
+            if (prevInput && e.key == "Backspace") {
+                $(prevInput).focus();
+            }
+        }
+    });
 
 
     $('input[type="number"]').on("keypress", function (event) {
@@ -51,9 +73,12 @@ function delay_hide(target, delay) {
     }, delay);
 }
 
-function validate(event) {
+function validate(event, nextForm) {
+    if(typeof nextForm != "undefined")
+        event.preventDefault();
+
     var target = event.target;
-    var inputs = $(target).find('input');
+    var inputs = $(target).find('input, textarea');
     var validation_type, error_msg, isValid=false;
     
     inputs.each(function(i, ele){
@@ -92,7 +117,11 @@ function validate(event) {
         }
     });
     // alert('aa');
-    return isValid;
+    if (isValid && typeof nextForm != "undefined") {
+        $('#signUpForm').hide();
+        $(nextForm).show();
+    } else
+        return isValid;
 }
 
 function validate_name(ele_id, alert, msg) {

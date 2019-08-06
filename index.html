@@ -51,14 +51,14 @@
     <main>
         <!-- <div class="popup closed" style="display: none;">
             <div class="backdrop"></div> -->
-            <div class="popup-dialog">
-                <div class="popup-header row text-center">
-                    <a class="d-block pointer col-6 tabs active" data-target="#signInForm">Login</a>
-                    <a class="d-block pointer col-6 tabs" data-target="#signUpForm">Signup</a>
+            <div class="card box-shadow mt-5 w-50">
+                <div class="card-head row-xs text-center">
+                    <a class="d-block pointer col-xs-6 tabs active" data-target="#signInForm">Login</a>
+                    <a class="d-block pointer col-xs-6 tabs" data-target="#signUpForm">Signup</a>
                 </div>
-                <div class="sign-form" id="signInForm">
+                <div class="sign-form hide" id="signInForm">
                     <form action="profile.html" onsubmit="return validate(event)" method="POST">
-                        <div class="popup-body">
+                        <div class="card-body">
                             <div class="form-group">
                                 <label for="user">Username:</label>
                                 <input type="text" name="user" id="user" data-validation="required"
@@ -70,15 +70,15 @@
                                 data-errmessage="Enter Your Password" placeholder="Enter Password">
                             </div>
                         </div>
-                        <div class="popup-footer text-right">
+                        <div class="card-footer text-right">
                             <button type="reset" role="button" class="btn btn-secondary pointer">Reset</button>
                             <button type="submit" role="button" class="btn btn-primary pointer">Submit</button>
                         </div>
                     </form>
                 </div>
                 <div class="sign-form hide" id="signUpForm">
-                    <form action="profile.html" onsubmit="return validate(event)" method="post">
-                        <div class="popup-body">
+                    <form onsubmit="validate(event, '#otpForm')" method="post">
+                        <div class="card-body">
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-group">
@@ -101,13 +101,18 @@
                                 <input type="email" name="email" id="email" data-validation="email"
                                     data-errmessage="Enter Your Email" placeholder="Enter Email">
                             </div>
-                            <div id="address">
-                                <div class="form-group">
+                            <div id="address_grp">
+                                <div class="form-group" >
                                     <label for="address">Address:</label>
-                                    <textarea type="text" name="address" id="address" data-validation="required"
+                                    <textarea class="add-txtarea" type="text" name="address" id="address" data-validation="required"
                                         data-errmessage="Enter Your Address" placeholder="Enter Address"></textarea>
                                     <a role="button" class="pointer add-more">+ Add More</a>
                                 </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="mob">Mobile:</label>
+                                <input type="number" maxlength="10" name="mob" id="mob" data-validation="mobile"
+                                    data-errmessage="Enter Your Mobile No." placeholder="Enter Mobile No.">
                             </div>
                             <div class="form-group">
                                 <label for="pass">Password:</label>
@@ -116,7 +121,46 @@
                             </div>
                         </div>
                 
-                        <div class="popup-footer text-right">
+                        <div class="card-footer text-right">
+                            <button type="reset" role="button" class="btn btn-secondary pointer">Reset</button>
+                            <button type="submit" role="button" class="btn btn-primary pointer">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="sign-form data-nextinput=""" id="otpForm">
+                    <form action="profile.html" onsubmit="return validate(event)" method="post">
+                        <div class="card-body">
+                            <h5 class="text-center">Please Verify Your Mobile No.</h5><br>
+                            <div class="form-group">
+                                <label for="otp">OTP:</label>
+                                <div class="row-xs">
+                                    <div class="col-xs-3">
+                                        <input class="otp-input" type="number" name="otp1" id="otp1" data-validation="required" 
+                                        data-errmessage="Enter OTP"
+                                        placeholder="-" maxlength="1" data-nextinput="#otp2">
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <input class="otp-input" type="number" name="otp2" id="otp2" data-validation="required" 
+                                        data-errmessage="Enter OTP"
+                                        placeholder="-" maxlength="1" data-nextinput="#otp3" data-previnput="#otp1">
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <input class="otp-input" type="number" name="otp3" id="otp3" data-validation="required" 
+                                        data-errmessage="Enter OTP"
+                                        placeholder="-" maxlength="1" data-nextinput="#otp4" data-previnput="#otp2">
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <input class="otp-input" type="number" name="otp4" id="otp4" data-validation="required" 
+                                        data-errmessage="Enter OTP"
+                                        placeholder="-" maxlength="1" data-previnput="#otp3">
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                
+                        <div class="card-footer text-right">
                             <button type="reset" role="button" class="btn btn-secondary pointer">Reset</button>
                             <button type="submit" role="button" class="btn btn-primary pointer">Submit</button>
                         </div>
@@ -126,10 +170,10 @@
         <!-- </div> -->
     </main>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
-        <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script> -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
