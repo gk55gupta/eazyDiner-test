@@ -2,7 +2,11 @@ $(function() {
     console.log('document ready');
 
     $('.nav-toggle').on('click', function() {
-        $('.navBar').toggleClass('expanded').toggleClass('collapsed');
+        if($('.navBar').hasClass('closed')){
+            $('.navBar').toggleClass('expanded').removeClass('closed');
+        } else {
+            $('.navBar').toggleClass('expanded').toggleClass('collapsed');
+        }
     });
 
     $('.backdrop').on('click', function() {

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+        font-family: arial;
+        text-align: center;
+        }
+        .heading{
+        padding: 10px;
+        font-size: 30px;
+        border-bottom: 1px solid #ccc;
+        color: #666666;
+        font-weight: bold;
+        }
+        .big{
+        font-size: 240px;
+        }
+        .c100{
+        position: relative;
+        width: 1em;
+        height: 1em;
+        border-radius: 50%;
+        background-color: #ddd;
+        margin: 30px auto;
+        }
+        .c100:after{
+        content: '';
+        position: absolute;
+        background-color: #f5f5f5;
+        height: 0.84em;
+        width: 0.84em;
+        left: 0.08em;
+        top: 0.08em;
+        border-radius: 50%;
+        }
+        .no{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 5em;
+        font-size: 0.2em;
+        line-height: 5em;
+        color: #aaa;
+        display: block;
+        text-align: center;
+        z-index: 1;
+        }
+        .slice{
+        position: absolute;
+        height: 1em;
+        width: 1em;
+        clip: rect(auto, auto, auto, auto);
+        /*
+        when width is less than 50%/ 180deg;
+        clip: rect(0em, 1em, 1em, 0.5em);
+        */
+        }
+        .slice .bar{
+        position: absolute;
+        border: 0.08em solid #307bbb;
+        width: 0.84em;
+        height: 0.84em;
+        clip: rect(0em, 0.5em, 1em, 0em);
+        border-radius: 50%;
+        transform: rotate(288deg);
+        }
+        .slice .fill{
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+        position: absolute;
+        border: 0.08em solid #307bbb;
+        width: 0.84em;
+        height: 0.84em;
+        clip: rect(0em, 0.5em, 1em, 0em);
+        border-radius: 50%;
+        }
+        .inputs{
+        margin: 0 auto;
+        width: 200px;
+        }
+        input[type="text"]{
+        padding: 10px;
+        width: 60px;
+        text-align: center;
+        border-radius: 3px;
+        border: 1px solid #ddd;
+        margin-right: 5px;
+        }
+        button[type="button"]{
+        background-color: #288ce4;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        -webkit-transition-duration: 0.5s; /* Safari */
+        transition-duration: 0.5s;
+        }
+        button[type="button"]:hover{
+        box-shadow: 0px 5px 10px 2px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+        Percentage Circle
+    </div>
+    <div class="c100 big">
+        <span class="no">80%</span>
+        <div class="slice">
+            <div class="bar"></div>
+            <div class="fill"></div>
+        </div>
+    </div>
+    <div class="inputs">
+        <input type="text" name="value" maxlength="3" placeholder="Enter No.">
+        <button type="button">
+            SUBMIT
+        </button>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <script>
+    
+        $(document).ready(function(){
+            $("input[type='text']").keydown(function(event){
+                if (!((event.keyCode == 190) || (event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode>= 96 &&
+                    event.keyCode <= 105) || event.keyCode==8 || event.keyCode==9 || event.keyCode==37 || event.keyCode==39 ||
+                    event.keyCode==46)) { //not a number key or period so prevent event.preventDefault(); } });
+                    
+                    $("button[type='button' ]").on("click", function(){ 
+                        var txtboxval=$("input[type='text' ]").val();
+                        if(txtboxval=="" || txtboxval> 100){
+                            alert("Enter only number & number should be less than 100.");
+                            $("input[type='text']").val("");
+                        } else {
+                            if(txtboxval > 50){
+                                txtboxval = txtboxval-50;
+                                var val = 180/50;
+                                var fval = val*txtboxval;
+                                fval = fval + 180;
+                                $(".slice").css({"clip":"rect(auto, auto, auto, auto)"});
+                                $(".slice").append("<div class='bar'></div>");
+                                $(".fill").css({"transform":"rotate(180deg)"});
+                                $(".bar").css({"transform":"rotate("+fval+"deg)"});
+                                $(".no").text($("input[type='text']").val()+"%");
+                            } 
+                            else {
+                                var val = 180/50;
+                                var fval = val*txtboxval;
+                                fval = fval;
+                                $(".slice").find(".bar").remove();
+                                $(".slice").css({"clip":"rect(0em, 1em, 1em, 0.5em)"});
+                                $(".fill").css({"transform":"rotate("+fval+"deg)"});
+                                $(".no").text($("input[type='text']").val()+"%");
+                            }
+                        }
+                    });
+                }
+            });
+
+        });
+
+    </script>
+</body>
+</html>

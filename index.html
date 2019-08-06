@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SignIn / SignUp</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -14,35 +15,21 @@
             <h2>Test</h2>
         </div>
         <div class="nav-container col-10">
-            <nav class="navBar collapsed">
+            <nav class="navBar closed">
                 <a href="javascript:void(0)" class="nav-toggle"><img src="./images/menu-toggle.png" alt="Toggle Menu"></a>
 
                 <ul class="menuList">
-                    <li><a class="active" href="#">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li class="dropDown">
-                        <a href="#">Menu</a>
+                        <a href="#">Menu &nbsp; <i class="fas fa-chevron-down"></i></a>
                         <div class="dropDownitems">
                             <ul>
-                                <!--_---------------------2nd level-----------------------_-->
                                 <li><a href="#">link1</a></li>
-                                <li class="dropDown">
-                                    <a href="#">Menu</a>
-                                    <div class="dropDownitems3rdLvl">
-                                        <ul>
-                                            <!--_---------------------3rd level-------------------------_-->
-                                            <li><a href="#">link1</a></li>
-                                            <li><a href="#">link2</a></li>
-                                            <li><a href="#">Link3</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
+                                <li><a href="#">Link2</a></li>
                                 <li><a href="#">Link3</a></li>
                             </ul>
                         </div>
                     </li>
-
-                    <!-- <li><a role="button" class="pointer" data-trigger="popup">Login</a></li> -->
-                    <!-- <li><a role="button" class="pointer" data-trigger="popup">Signup</a></li> -->
                 </ul>
             </nav>
         </div>
@@ -56,7 +43,7 @@
                     <a class="d-block pointer col-xs-6 tabs active" data-target="#signInForm">Login</a>
                     <a class="d-block pointer col-xs-6 tabs" data-target="#signUpForm">Signup</a>
                 </div>
-                <div class="sign-form hide" id="signInForm">
+                <div class="sign-form" id="signInForm">
                     <form action="profile.html" onsubmit="return validate(event)" method="POST">
                         <div class="card-body">
                             <div class="form-group">
@@ -127,7 +114,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="sign-form data-nextinput=""" id="otpForm">
+                <div class="sign-form hide" data-nextinput="" id="otpForm">
                     <form action="profile.html" onsubmit="return validate(event)" method="post">
                         <div class="card-body">
                             <h5 class="text-center">Please Verify Your Mobile No.</h5><br>
@@ -170,10 +157,10 @@
         <!-- </div> -->
     </main>
 
-    <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script> -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+        <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
     <script src="js/script.js"></script>
 </body>
 </html>

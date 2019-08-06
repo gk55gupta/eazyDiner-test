@@ -121,14 +121,37 @@ a {
 .p-2 {
     padding: 15px;
 }
+.pb-2 {
+    padding-bottom: 15px;
+}
+
 .py-2 {
     padding: 15px 0;
+}
+.pl-5 {
+    padding-left: 55px;
+}
+
+.m-2 {
+    margin: 10px;
 }
 .mt-2 {
     margin-top: 10px;
 }
 .mt-5 {
     margin-top: 50px !important;
+}
+.ml-5 {
+    margin-left: 50px !important;
+}
+.rel {
+    position: relative;
+}
+.abs {
+    position: absolute;
+}
+.left {
+    left: 10px;
 }
 .box-shadow {
     box-shadow: 1px 1px 1px 1px #ddd;
@@ -161,6 +184,18 @@ a {
 .border-bottom {
     border-bottom: 1px solid #ddd;
 }
+.float-right {
+    float: right;
+}
+.d-inline-block {
+    display: inline-block;
+}
+.text-blue {
+    color: #009bec;
+}
+.border-circle {
+    border-radius: 50%;
+}
 
 /*------------------------ Menu Bar Style --------------------------*/
 .menuList{
@@ -180,7 +215,7 @@ a {
 	text-decoration:none;
 	color: #444444;
 	text-align: center;
-	padding:11px 22.6px;
+	padding: 11px 30px;
 }
 
 .menuList a:hover:not(.active){
@@ -194,10 +229,11 @@ a {
 
 .dropDownitems{
 	display:none;
-	position:absolute;
+	position: absolute;
 	background-color: #f9f9f9;
-    min-width: 122px;
+	min-width: 122px;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	right: 15px;
 }
 
 .dropDownitems a{
@@ -229,21 +265,32 @@ a {
 /* end menu styles */
 
 .btn {
-    padding: 6px 25px;
+    box-shadow: 0px 2px 4px 0px #aaa;
+    padding: 10px 30px;
     display: inline-block;
     border-radius: 2px;
     border: 1px solid #444;
     background: transparent;
+    font-size: 14px;
 }
-.btn-secondary {
-}
+.btn-secondary {}
 .btn-primary {
-
-color: #fff;
-
-background: #444;
+    color: #fff;
+    background: #444;
 }
-
+.btn-blue {
+    background: #009bec;
+    border-color: #009bec;
+    color: #fff;
+}
+.btn-small {
+	padding: 8px 10px;
+}
+.btn-green {
+    background: #3cbf1c;
+    border-color: #3cbf1c;
+    color: #fff;
+}
 
 .slideInLeft {
   animation: 1s slidein;
@@ -253,7 +300,6 @@ background: #444;
 }
 
 .popup  {
-    /* display: none; */
     position: fixed;
     top:  0;
     left: 0;
@@ -286,7 +332,7 @@ background: #444;
     background: #fff;
     width: 50%;
     min-width: 280px;
-    max-width: 400px;
+    max-width: 450px;
     overflow: hidden;
 }
 
@@ -294,7 +340,7 @@ background: #444;
     border-bottom: 1px solid #ddd;
 }
 .card-head a {
-    padding: 8px 18px;
+    padding: 10px 20px;
 }
 .card-head a.active {
     background: #444444;
@@ -323,6 +369,15 @@ background: #444;
     height: 10px;
     width: 35%;
 }
+.pr-skill {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border: 4px solid;
+    position: relative;
+    margin-bottom: 25px;
+}
+
 .skill1 .fill {
     background: #009bec;
 } 
@@ -330,14 +385,46 @@ background: #444;
     background: #3cbf1c;
 } 
 .skill3 .fill {
-    background: #10adff;
+    background: #da6a02;
 } 
 .skill4 .fill {
-    background: #6d4cbd;
+    background: #ce18d4;
 } 
 .skill5 .fill {
-    background: #e6671d;
+    background: #d3227a;
 }
+.pr-skill.skill1 {
+    border-color: #009bec;
+}
+
+.pr-skill.skill2 {
+    border-color: #3cbf1c;
+}
+
+.pr-skill.skill3 {
+    border-color: #da6a02;
+}
+
+.pr-skill.skill4 {
+    border-color: #ce18d4;
+}
+
+.pr-skill.skill5 {
+    border-color: #d3227a;
+}
+.pr-skill p {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%);
+}
+.pr-skill h5 {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
 .tab-pills {min-width: 800px;overflow-x: auto;width: 100%;}
 .tab-pill {
     display: inline-block;
@@ -349,11 +436,13 @@ background: #444;
 	border-bottom: 3px solid #4f92ff;
 }
 th {
-    width: 50%;
-    padding: 15px;
+    width: 25%;
+    text-align: left;
+    padding: 0;
+    padding-left: 10px;
 }
 
-td {padding: 15px;width: 45%;}
+td {padding: 15px;width: 20%;}
 
 .form-group {
     position: relative;
@@ -365,7 +454,7 @@ label {
 }
 input, textarea {
     width: 99%;
-    padding: 8px;
+    padding: 12px;
     margin: 5px;
     margin-bottom: 20px;
     border-radius: 3px;
@@ -447,12 +536,17 @@ input.invalid {
     }
     .navBar.collapsed {
         animation: .7s slideOut;
+        /* display: none; */
     }
     .row {
         flex-wrap: wrap;
     }
     [class*="col-"] {
         width: 100%;
+    }
+    .pr-skill {
+        width: 100px;
+        height: 100px;
     }
 }
 
